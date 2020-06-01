@@ -5,6 +5,7 @@ var morgan = require('morgan');
 var session = require('express-session');
 var mongoose = require('mongoose');
 var mongoStore = require('connect-mongo')(session);
+var bcrypt = require('bcryptjs');
 
 try{
     mongoose.connect("mongodb://localhost:27017/mysite");
@@ -22,7 +23,7 @@ var userSchema = new mongoose.Schema({
     gender : String,
     username : {type: String, required: true, unique:true}, 
     password : {type: String, required: true},
-    confirm_password : {type: String, required: true},
+    // confirm_password : {type: String, required: true},
 });
 
 var usermodel = mongoose.model("user",userSchema); 
@@ -70,15 +71,18 @@ app.post('/login', function(req, res){
     usermodel.findOne({ username : userid } , function(err,user){
         if (err) {throw err}
         if (user != undefined){
-            if (user.password == password1){
-                req.session.auth = { username : userid};
-                console.log(req.session);
-                return res.sendFile(__dirname + "/templates/login_sucess.html");
-            }
-            else {
-                console.log("password not valid");
-                return res.sendFile(__dirname + "/templates/login.html");
-            }
+            bcrypt.compare(password1, user.password, function(err,result) {
+                console.log("result:- "+result);
+                if (result == true){
+                    req.session.auth = {username : userid};
+                    console.log(req.session);
+                    return res.sendFile(__dirname + "/templates/login_sucess.html");
+                }
+                else {
+                    console.log("password not valid");
+                    return res.sendFile(__dirname + "/templates/login.html");
+                }
+            });
         }
         else{
             console.log("user not registered!");
@@ -86,10 +90,11 @@ app.post('/login', function(req, res){
         }
     })
 }) 
+
 app.post('/register', function(req, res){ 
     let userid = req.body.username;
     let password1 = req.body.password;
-    let confirm_password = req.body.cpassword
+    let confirm_password1 = req.body.cpassword
     let email1 = req.body.email;
     let phone_no1 = req.body.phone_no;
     let gender1 = req.body.gender;
@@ -98,7 +103,7 @@ app.post('/register', function(req, res){
 
     if ( userid.length && password1.length ) {
         if ( password1.length >= 8 ) {
-            if(password1 == confirm_password)
+            if(password1 == confirm_password1)
             {
             usermodel.find({username : userid} , function (err,users) {
                 if (err) {throw err}
@@ -115,6 +120,18 @@ app.post('/register', function(req, res){
                         username : userid,
                         password : password1,
                     });
+
+                    bcrypt.genSalt(10, (err, salt) => {
+                        bcrypt.hash(newUser.password,salt,(err, hash) => {
+                            if(err) throw err;                   
+                            // Set the hashed password and save the model
+                            newUser.password = hash;
+                            newUser.save()
+                            .then((user) => res.json(user))
+                            .catch(error => console.log(error));
+                        })
+                    });
+
                 db.collection('users').insertOne(newUser,function(err,collection){ 
                     if (err) throw err; 
                     console.log("Record inserted Successfully");         
