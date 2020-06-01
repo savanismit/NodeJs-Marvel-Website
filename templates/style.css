@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Galada&family=Lato&family=Pacifico&family=Raleway&family=Roboto:wght@500&family=Slabo+27px&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,600&family=Roboto:ital,wght@1,700&display=swap');
+
+body{
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Lato';
+}
+
+.navbar-brand{
+    font-family: 'Pacifico';
+    font-size: 35px;
+    color: lightcoral !important;
+}
+
+.nav-link{
+    font-size: 16px;
+    margin: 15p;
+    color: white !important;
+    font-family: 'Roboto';   
+}
+
+.nav-link:hover{
+    color: yellow !important;
+}
+
+.menu-right-btn{
+    padding:13px 46px;
+    margin-right: 4%;
+    background-color: transparent;
+    transition: all 300ms ease-in;
+}
+
+.menu-right-btn:hover{
+    color: black;
+    background-color: #00E8E8;
+}
+
+.site-content{
+    background-image: url('Images/index.JPG');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.site-title, .site-description{
+    color: white;
+    margin-left: 10%;
+    font-family: 'Slabo 27px';
+}
+
+.site-title{
+    margin-top: 30%;
+    margin-bottom: 3%;
+    font-size: 40px; 
+}
+
+.site-description{
+    font-size: 20px;
+    color:white;
+}
+
+.site-btn1{
+    margin-left: 20%;
+    background-color: black;
+    color: yellow;
+}
+
+.site-btn2{
+    background-color: white;
+}
+
+.site-btn1,.site-btn2{
+    margin-top: 5%;
+    margin-bottom: 51%;
+}
+
+.section-1 .heading-2{
+    margin-bottom: 2%;
+    font-size: 50px;
+}
+
+.section-1 .para1{
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 3%;
+}
+
+.section-1 .card-text .para1{
+    color: rgba(0,0,0,0.59);
+}
+
+.section-1{
+    margin-bottom: 3%;
+}
+.card-img-top {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+}
+.card1{
+    width: 20rem;
+}
+
+/* Footer */
+.section-5{
+    color: white;
+}
+.section-5 .my4{
+    color: white;
+    font-family: 'Slabo 27px';
+}
+
+.social i{
+    color: white;
+    font-size: 25px;
+}
+.footer-copyright{
+    color: white;
+}
+/* Footer */
+.card2{
+    margin-top: 30%;
+    margin-bottom: 32%;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+.card3{
+    margin:10%;
+}
+.card-title{
+    color: white;
+}

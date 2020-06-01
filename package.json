@@ -1,0 +1,38 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "login and signup form",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/savanismit/Marvel-Heroes-Website.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.10.2",
+    "connect-mongo": "^3.2.0",
+    "connect-redis": "^3.4.0",
+    "express": "^4.17.1",
+    "express-session": "^1.10.1",
+    "install": "^0.13.0",
+    "mongodb": "^3.5.8",
+    "mongoose": "^5.9.16",
+    "morgan": "^1.5.1",
+    "yarn": "^1.22.4"
+  },
+  "keywords": [
+    "login",
+    "signup"
+  ],
+  "author": "savanismit",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.4.0"
+  },
+  "bugs": {
+    "url": "https://github.com/savanismit/Marvel-Heroes-Website/issues"
+  },
+  "homepage": "https://github.com/savanismit/Marvel-Heroes-Website#readme"
+}
