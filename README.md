@@ -7,10 +7,11 @@ These instructions will get you a copy of the project up and running on your loc
 You need to have installed Node.js, NPM and MongoDB in your System.
 
 ### Installing
-
+1. npm install
 
 ### To Run
+2. node app
 
 ### Code is Running on
-http://localhost:5001/
+Link - http://localhost:5001/   
 Thanks
