@@ -17,4 +17,8 @@ You need to have installed Node.js, NPM and MongoDB in your System.
 
 ### Code is Running on
 Link - http://localhost:5001/   
+
+### Screenshots
+![home](home.png)   
+
 Thanks
