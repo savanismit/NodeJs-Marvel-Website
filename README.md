@@ -19,6 +19,14 @@ You need to have installed Node.js, NPM and MongoDB in your System.
 Link - http://localhost:5001/   
 
 ### Screenshots
-![home](home.png)   
+##### 1. Home page
+![home](home.png)
+##### 2. Register Page
+![register](register.png)
+##### 3. Login Page
+![login](login.png)
+##### 4. Logged in Page
+![loggedin](loggedin.png)
 
-Thanks
+
+Thanks 😃
